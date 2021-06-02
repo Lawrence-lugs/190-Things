@@ -17,14 +17,12 @@ scatter(energy_per_bit,throughput,area*scale,'blue')
 energy_per_bit = [20e-15,9.8e-15,5.6e-15];
 throughput = [5.9e3,1.9e3,1e9];
 
-epb2 = [38.68e-15,8*17.16e-15];
-tput2 = [7e6,7e6];
-area2 = [115,9.1];
+epb2 = [38.68e-15];
+tput2 = [7e6];
+area2 = [115];
 
 scatter(epb2,tput2,dotscale,'MarkerFaceColor','red','LineWidth',1)
-scatter(epb2,tput2,area2*scale,'red')
 text(38.68e-15*0.3,7e6*0.5,'Daniels 2020 (SMTJ)')
-text(8*17.16e-15*0.5,7e6*2,'Hu 2019 (SOT)')
 
 scatter(311e-15,7.22e6,dotscale,'MarkerFaceColor','black','LineWidth',1)
 scatter(311e-15,7.22e6,139.96*scale,'black')
