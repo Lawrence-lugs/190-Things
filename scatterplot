@@ -1,7 +1,9 @@
 energy_per_bit = [20e-15,9.8e-15,5.6e-15,36e-12,3e-12];
 throughput = [5.9e3,1.9e3,1e9,500e3,2.4e9];
 labels = {'Vodenicarevic 2017 XOR8 (SMTJ)', 'Vodenicarevic 2017 XOR4 (SMTJ)','Nisar 2020* (VCMA)','Carboni 2018 (STT)','Mathew 2012 (CMOS)'};
+area = [8,4,3.44,nan,4000];
 dotscale = 50;
+scale = 2;
 
 clf
 
@@ -10,25 +12,36 @@ text(energy_per_bit*(0.5),throughput*(1.6),labels)
 
 hold on
 
+scatter(energy_per_bit,throughput,area*scale,'blue')
+
 energy_per_bit = [20e-15,9.8e-15,5.6e-15];
 throughput = [5.9e3,1.9e3,1e9];
 
 epb2 = [38.68e-15,8*17.16e-15];
 tput2 = [7e6,7e6];
+area2 = [115,9.1];
 
 scatter(epb2,tput2,dotscale,'MarkerFaceColor','red','LineWidth',1)
+scatter(epb2,tput2,area2*scale,'red')
 text(38.68e-15*0.3,7e6*0.5,'Daniels 2020 (SMTJ)')
-text(8*17.16e-15*1.3,7e6*1.5,'Hu 2019 (SOT)')
+text(8*17.16e-15*0.5,7e6*2,'Hu 2019 (SOT)')
 
-scatter(311e-15,462e6,dotscale,'MarkerFaceColor','black','LineWidth',1)
-text(311e-15*0.5,462e6*1.6,'Lee 2017 (VCMA)')
+scatter(311e-15,7.22e6,dotscale,'MarkerFaceColor','black','LineWidth',1)
+scatter(311e-15,7.22e6,139.96*scale,'black')
+text(311e-15*0.7,7.22e6*0.5,'Lee 2017 (VCMA)')
 
 scatter(104.313e-15,40e6,dotscale,'p','MarkerFaceColor','blue')
-text(104.313e-15*0.5,40e6*1.6,'This work (VCMA)')
+scatter(104.313e-15,40e6,1.09*scale,'blue')
+text(104.313e-15*0.5,40e6*1.6,'This work')
+
+scatter(842.8e-15,40e6,dotscale,'p','MarkerFaceColor','red')
+scatter(842.8e-15,40e6,19.8*scale,'red')
+text(842.8e-15*0.5,40e6*1.6,'This work')
+
 
 hold off
 
-legend('High Quality RNG','Tunable SNG','Proof of Concept','Location','southeast')
+legend('High Quality RNG','','Tunable SNG','','Proof of Concept','Location','southeast')
 
 set(gca,'xscale','log')
 set(gca,'yscale','log')
